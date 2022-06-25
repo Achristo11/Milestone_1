@@ -6,32 +6,36 @@ window.onload = function () {
 
     const wordList = "testing";
     const word = Array.from(wordList)
-    var catagory;
     
-    var board = document.getElementById('word');
-    var answer = document.createElement('ul');
-    
+    const answerArray = document.querySelector('#answer');
+
     for (let i = 0; i < word.length; i++){
-        answer.setAttribute("id", "word");
-        
-
-
+        let letter = document.createElement('li')
+        answerArray.appendChild(letter)
     }
-
-
-
+   
     for (let i = 0; i < alphabet.length; i++){
         let button = document.createElement('button')
         button.innerText = alphabet[i]
         button.id = [alphabet[i]]
-        button.addEventListener('click', () => {
+        button.addEventListener('click', (event) => {
+            // console.log(event.target)
+            checkLetter(event.target)
             button.disabled = true
+            
         })    
         document.getElementById("letters").appendChild(button)
         
     }
 
 
-
+    function checkLetter(guess) {
+        for (let i = 0; i < word.length; i++) {
+            // console.log(answerArray.children, answerArray.children[i])
+            if ( word[i] === guess.innerText) {
+                answerArray.children[i].textContent = guess.innerText;
+            }
+        }
+    }
 
 }
