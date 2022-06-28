@@ -1,0 +1,25 @@
+#answer {
+    margin: 0;
+    display: block;
+    padding: 0;
+    display: block;
+}
+
+#answer li {
+    list-style: none;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    color: blue;
+    padding: 0 5px;
+}
+
+body {
+
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    color: white;
+    height:100%;
+    text-align:center;
+    font-size:18px;
+}
