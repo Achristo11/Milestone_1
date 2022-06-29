@@ -3,12 +3,11 @@ window.onload = () => {
         'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
         't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
-    console.log("reintialized");
+
     const wordList = ["testing", "potato"];
     const answerArray = document.querySelector('#answer');
-
+    var word = []; 
     function createWord(){
-        var word = []; 
         const listItems = document.querySelectorAll('#answer li');
         if (answerArray.children.length) {
             for (let i = 0; i < listItems.length; i++) {
@@ -26,12 +25,11 @@ window.onload = () => {
             word = Array.from(wordList[0])
         }else{
             word = Array.from(wordList[1])
-        }
-        console.log(word);
+            }
+            
         for (let i = 0; i < word.length; i++){
             let letter = document.createElement('li')
             answerArray.appendChild(letter)
-            console.log(answerArray);
         }
     }
 
@@ -41,15 +39,17 @@ window.onload = () => {
         button.innerText = alphabet[i]
         button.id = [alphabet[i]]
         button.addEventListener('click', (event) => {
-            // console.log(event.target)
             checkLetter(event.target)
             button.disabled = true
         })    
         document.getElementById("letters").appendChild(button)
     }
+
     function checkLetter(guess) {
         for (let i = 0; i < word.length; i++) {
+            // console.log(i);
             if ( word[i] === guess.innerText) {
+                console.log(word[i]);
                 answerArray.children[i].textContent = guess.innerText;
             }
         }
@@ -62,5 +62,6 @@ window.onload = () => {
         createWord();
     })
     document.getElementById("newGame").appendChild(newGame);
+    console.log(answerArray.children);
     createWord();
 }
